@@ -9,12 +9,16 @@ function TileCard({tile}){
             <div className="tile-item">
                 <Title title={tile.title} />
                 <Category category={tile.category} />
-                <Gallery media={tile.gallery} />
+                <div className="pinned-image">
+                    <PinnedImg media={tile.gallery} />
+                    <Pins pins={tile.pins} />
+                </div>
+                <SmImages media={tile.gallery} />
                 <FollowButton />
             </div>
         </div>
     )
-}
+};
 
 TileCard.proptypes={
     tile:PropTypes.object
@@ -26,7 +30,7 @@ function Title({title}) {
         {title}
         </div>
     )
-}
+};
 
 Title.proptypes={
     title:PropTypes.string.isRequired
@@ -38,28 +42,37 @@ function Category({category}) {
         {category}
         </div>
     )
-}
+};
 
 Category.proptype={
     category:PropTypes.string.isRequired
-}
+};
 
-function Gallery({media}) {
+function PinnedImg({media}) {
     return(
-        <div className="img-box">
-            <div className="big-image">
-                {media.bigImg}
+        <div className="big-image">
+            {media.bigImg}
+        </div>
+    )
+};
+            
+function Pins({pins}) {
+    return(
+        <div className="pins"><i class="fas fa-thumbtack" /> {pins}</div>
+    )
+};
+
+function SmImages({media}) {
+    return(        
+        <div className="sm-images">
+            <div className="img-item">
+                {media.smImg1}
             </div>
-            <div className="sm-images">
-                <div className="img-item">
-                    {media.smImg1}
-                </div>
-                <div className="img-item">
-                    {media.smImg2}
-                </div>
-                <div className="img-item">
-                    {media.smImg3}
-                </div>
+            <div className="img-item">
+                {media.smImg2}
+            </div>
+            <div className="img-item">
+                {media.smImg3}
             </div>
         </div>
     )

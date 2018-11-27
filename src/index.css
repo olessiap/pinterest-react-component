@@ -27,19 +27,26 @@ body {
   font-size: 15px;
 }
 
-.img-box {
-  padding-top:5px;
-  height:250px;
-}
-
 .big-image {
   background:palegreen;
   height:170px;
   border-radius: 3px;
 }
 
+.pins {
+  margin-top: -24px;
+  padding:4px 0px 3px 4px;
+  background: grey;
+  width: 44px;
+  margin-left: 3px;
+  border-radius: 3px;
+  color: #d8d5d5;
+  font-size: 12px;
+}
+
 .sm-images {
   display:flex;
+  margin-top:3px;
 }
 
 .img-item {
@@ -61,4 +68,5 @@ body {
   height: 35px;
   margin-left: 2px;
   background: #efeded;
+  margin-top:8px;
 }
