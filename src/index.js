@@ -3,9 +3,72 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import './index.css';
 
+function PinterestBoard({headline, tiles}) {
+    return(
+        <div className="full-board">
+            <BoardHeadline headline={headline}/>
+            <TileCards tiles={tiles} />
+        </div>
+    )
+}
+
+
+function BoardHeadline({headline}) {
+    return(
+        <div className="board-headline">
+            <BoardIcon />
+            <BoardName category={headline.category} />
+            <Stats stats={headline.stats} />
+        </div>
+    )
+}
+
+function BoardIcon() {
+    return(
+        <div className="board-icon">
+            TF
+        </div>
+    )
+}
+
+function BoardName({category}) {
+    return(
+        <div className="board-name">{category}</div>
+    )
+}
+
+function Stats({stats}) {
+    return(
+        <div className="stats">
+            <div className="dividor">________</div>
+            <div className="stat-item highlighted-item">
+                <div className="stat-number">{stats.boards}</div>
+                <div className="stat-name">Boards</div>
+            </div>
+            <div className="stat-item">
+                <div className="stat-number">{stats.totalPins}</div>
+                <div className="stat-name">Pins</div>
+            </div>
+            <div className="stat-item">
+                <div className="stat-number">{stats.likes}</div>
+                <div className="stat-name">Likes</div>
+            </div>
+            <div className="stat-item">
+                <div className="stat-number">{stats.followers}</div>
+                <div className="stat-name">Followers</div>
+            </div>
+            <div className="stat-item">
+                <div className="stat-number">{stats.following}</div>
+                <div className="stat-name">Following</div>
+            </div>
+            <div className="dividor">________</div>
+        </div>
+    )
+}
+
 function TileCards({tiles}){
     return(
-        <div className="dashboard">
+        <div className="tile-dashboard">
             {tiles.map(tile => (
                 <div className="tile-item" key={tile.id}>
                     <Title title={tile.title} />
@@ -88,6 +151,18 @@ function FollowButton() {
     )
 }
 
+const testDash = {
+    id:1,
+    category:"Travel Forever",
+    stats: {
+        boards: 13,
+        totalPins:345,
+        likes:8743,
+        followers:54,
+        following:321
+    }
+};
+
 const testTile = [
     {
         id:1,
@@ -163,4 +238,4 @@ const testTile = [
     }
 ]
 
-ReactDOM.render(<TileCards tiles={testTile} />, document.querySelector('#root'));
+ReactDOM.render(<PinterestBoard tiles={testTile} headline={testDash}/>, document.querySelector('#root'));
