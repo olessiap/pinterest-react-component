@@ -50,8 +50,8 @@ Category.proptype={
 
 function PinnedImg({media}) {
     return(
-        <div className="big-image">
-            {media.bigImg}
+        <div>
+            <img src={media.bigImg} alt="adventure" className="big-image"/>
         </div>
     )
 };
@@ -65,14 +65,14 @@ function Pins({pins}) {
 function SmImages({media}) {
     return(        
         <div className="sm-images">
-            <div className="img-item">
-                {media.smImg1}
+            <div>
+                <img src={media.smImg1} alt="hike" className="img-item"/>
             </div>
-            <div className="img-item">
-                {media.smImg2}
+            <div>
+                <img src={media.smImg2} alt="hike" className="img-item"/>
             </div>
-            <div className="img-item">
-                {media.smImg3}
+            <div>
+                <img src={media.smImg3} alt="hike" className="img-item"/>
             </div>
         </div>
     )
@@ -88,13 +88,13 @@ function FollowButton() {
 
 const testTile = {
     title:"Ideas for outside shanangins",
-    category:"Party Time",
+    category:"Travel Forever",
     pins: 1465,
     gallery: {
-        bigImg:'bigImg',
-        smImg1:'img1',
-        smImg2:'img2',
-        smImg3:'img3'
+        bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }
 }
 
