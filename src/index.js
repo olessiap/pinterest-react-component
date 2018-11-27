@@ -3,24 +3,26 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import './index.css';
 
-function TileCard({tile}){
+function TileCards({tiles}){
     return(
         <div className="dashboard">
-            <div className="tile-item">
-                <Title title={tile.title} />
-                <Category category={tile.category} />
-                <div className="pinned-image">
-                    <PinnedImg media={tile.gallery} />
-                    <Pins pins={tile.pins} />
+            {tiles.map(tile => (
+                <div className="tile-item" key={tile.id}>
+                    <Title title={tile.title} />
+                    <Category category={tile.category} />
+                    <div className="pinned-image">
+                        <PinnedImg media={tile.gallery} />
+                        <Pins pins={tile.pins} />
+                    </div>
+                    <SmImages media={tile.gallery} />
+                    <FollowButton />
                 </div>
-                <SmImages media={tile.gallery} />
-                <FollowButton />
-            </div>
+            ))}
         </div>
     )
 };
 
-TileCard.proptypes={
+TileCards.proptypes={
     tile:PropTypes.object
 };
 
@@ -86,16 +88,79 @@ function FollowButton() {
     )
 }
 
-const testTile = {
-    title:"Ideas for outside shanangins",
-    category:"Travel Forever",
-    pins: 1465,
-    gallery: {
-        bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+const testTile = [
+    {
+        id:1,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
+    },
+    {
+        id:2,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
+    },
+    {
+        id:3,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
+    },
+    {
+        id:4,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
+    },
+    {
+        id:5,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
+    },
+    {
+        id:6,
+        title:"Ideas for outside shanangins",
+        category:"Travel Forever",
+        pins: 1465,
+        gallery: {
+            bigImg:"https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg1:"https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg2:"https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            smImg3:"https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        }
     }
-}
+]
 
-ReactDOM.render(<TileCard tile={testTile} />, document.querySelector('#root'));
+ReactDOM.render(<TileCards tiles={testTile} />, document.querySelector('#root'));
